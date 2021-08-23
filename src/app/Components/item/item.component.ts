@@ -24,4 +24,12 @@ export class ItemComponent implements OnInit {
     this.isCart = true;
   }
 
+  removeCart() {
+    let cart__ = JSON.parse(sessionStorage.getItem("cart") || "[]");
+    let ind__ = cart__.indexOf(this.item.id);
+    cart__.splice(ind__, 1);
+    sessionStorage.setItem("cart", JSON.stringify(cart__));
+    this.isCart = false;
+  }
+
 }
