@@ -27,4 +27,9 @@ export class CartComponent implements OnInit {
     })
   }
 
+  clearCart() {
+    sessionStorage.removeItem("cart");
+    this.price = 0;
+  }
+
 }
