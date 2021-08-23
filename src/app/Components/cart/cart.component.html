@@ -1,3 +1,4 @@
+<li class="list-group-item active" aria-current="true">Total {{price}}</li>
 <div *ngFor="let item of items">
-    <app-item [item]="item" [isCartPage]="true"></app-item>
+    <app-item [item]="item" [isCartPage]="true" (cartRedefine)="countCart()"></app-item>
 </div>

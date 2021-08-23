@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Item } from 'src/app/Models/item';
 
 @Component({
@@ -10,6 +10,7 @@ import { Item } from 'src/app/Models/item';
 export class ItemComponent implements OnInit {
   @Input() item!: Item;
   @Input() isCartPage!: boolean;
+  @Output() cartRedefine: EventEmitter<null> = new EventEmitter();
   isCart!: boolean
 
   constructor() { }
@@ -23,6 +24,7 @@ export class ItemComponent implements OnInit {
     cart__.push(this.item.id);
     sessionStorage.setItem("cart", JSON.stringify(cart__));
     this.isCart = true;
+    this.cartRedefine.emit();
   }
 
   removeCart() {
@@ -31,6 +33,7 @@ export class ItemComponent implements OnInit {
     cart__.splice(ind__, 1);
     sessionStorage.setItem("cart", JSON.stringify(cart__));
     this.isCart = false;
+    this.cartRedefine.emit();
   }
 
 }

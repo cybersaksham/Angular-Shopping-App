@@ -9,11 +9,22 @@ import { Item } from 'src/app/Models/item';
 
 export class CartComponent implements OnInit {
   items!: Item[];
+  price!: number;
 
   constructor() { }
 
   ngOnInit(): void {
     this.items = JSON.parse(sessionStorage.getItem("items") || "[]");
+    this.countCart();
+  }
+
+  countCart() {
+    let cart__ = JSON.parse(sessionStorage.getItem("cart") || "[]");
+    this.price = 0;
+    this.items.forEach((val) => {
+      if (cart__.indexOf(val.id) !== -1)
+        this.price += val.price;
+    })
   }
 
 }
