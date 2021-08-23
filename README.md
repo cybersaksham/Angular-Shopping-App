@@ -1,4 +1,4 @@
-# Angular Shoppign Website
+# Angular Shopping Website
 
 This project was made with angular js framework. This is a simple shopping website.
 
