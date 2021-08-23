@@ -15,4 +15,10 @@ export class ItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addCart() {
+    let cart__ = JSON.parse(sessionStorage.getItem("cart") || "[]");
+    cart__.push(this.item.id);
+    sessionStorage.setItem("cart", cart__);
+  }
+
 }

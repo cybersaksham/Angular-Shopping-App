@@ -6,7 +6,7 @@
         </div>
         <div class="ms-2">
             <span class="badge bg-primary rounded-pill">$ {{item.price}}</span>
-            <i class="bi bi-cart-plus-fill"></i>
+            <i (click)="addCart()" class="bi bi-cart-plus-fill"></i>
         </div>
     </li>
 </ol>
