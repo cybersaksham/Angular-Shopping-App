@@ -9,6 +9,7 @@ import { Item } from 'src/app/Models/item';
 
 export class ItemComponent implements OnInit {
   @Input() item!: Item;
+  @Input() isCartPage!: boolean;
   isCart!: boolean
 
   constructor() { }

@@ -6,8 +6,10 @@
         </div>
         <div class="ms-2">
             <span class="badge bg-primary rounded-pill">$ {{item.price}}</span>
-            <div *ngIf="!this.isCart; else elseBlock">
-                <i (click)="addCart()" class="bi bi-cart-plus-fill"></i>
+            <div *ngIf="!this.isCartPage; else elseBlock">
+                <div *ngIf="!this.isCart; else elseBlock">
+                    <i (click)="addCart()" class="bi bi-cart-plus-fill"></i>
+                </div>
             </div>
             <ng-template #elseBlock>
                 <div>
