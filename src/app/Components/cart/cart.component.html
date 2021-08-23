@@ -11,3 +11,7 @@
 <div *ngFor="let item of items">
     <app-item [item]="item" [isCartPage]="true" (cartRedefine)="countCart()"></app-item>
 </div>
+<div class="my-2 text-center">
+    <button (click)="clearCart()" class="m-2 btn btn-outline-primary">Checkout</button>
+    <button (click)="clearCart()" class="m-2 btn btn-outline-danger">Clear</button>
+</div>
