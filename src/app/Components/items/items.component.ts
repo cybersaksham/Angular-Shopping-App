@@ -43,6 +43,7 @@ export class ItemsComponent implements OnInit {
         price: 20
       }
     ];
+    sessionStorage.setItem("items", JSON.stringify(this.items));
   }
 
   ngOnInit(): void {
