@@ -9,16 +9,19 @@ import { Item } from 'src/app/Models/item';
 
 export class ItemComponent implements OnInit {
   @Input() item!: Item;
+  isCart!: boolean
 
   constructor() { }
 
   ngOnInit(): void {
+    this.isCart = JSON.parse(sessionStorage.getItem("cart") || "[]").indexOf(this.item.id) !== -1;
   }
 
   addCart() {
     let cart__ = JSON.parse(sessionStorage.getItem("cart") || "[]");
     cart__.push(this.item.id);
-    sessionStorage.setItem("cart", cart__);
+    sessionStorage.setItem("cart", JSON.stringify(cart__));
+    this.isCart = true;
   }
 
 }
