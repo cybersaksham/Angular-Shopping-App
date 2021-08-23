@@ -1,21 +1,21 @@
-<ol class="list-group">
-    <li class="my-2 list-group-item d-flex justify-content-between align-items-start">
-        <div class="ms-2 me-auto">
-            <div class="fw-bold">{{item.title}}</div>
-            {{item.desc}}
-        </div>
-        <div class="ms-2">
-            <span class="badge bg-primary rounded-pill">$ {{item.price}}</span>
-            <div *ngIf="!this.isCartPage; else elseBlock">
-                <div *ngIf="!this.isCart; else elseBlock">
+<div *ngIf="!this.isCartPage || this.isCart">
+    <ol class="list-group">
+        <li class="my-2 list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">{{item.title}}</div>
+                {{item.desc}}
+            </div>
+            <div class="ms-2">
+                <span class="badge bg-primary rounded-pill">$ {{item.price}}</span>
+                <div *ngIf="!this.isCartPage && !this.isCart; else elseBlock">
                     <i (click)="addCart()" class="bi bi-cart-plus-fill"></i>
                 </div>
+                <ng-template #elseBlock>
+                    <div>
+                        <i (click)="removeCart()" class="bi bi-cart-dash-fill"></i>
+                    </div>
+                </ng-template>
             </div>
-            <ng-template #elseBlock>
-                <div>
-                    <i (click)="removeCart()" class="bi bi-cart-dash-fill"></i>
-                </div>
-            </ng-template>
-        </div>
-    </li>
-</ol>
+        </li>
+    </ol>
+</div>
